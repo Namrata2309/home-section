@@ -1,0 +1,83 @@
+:root {
+    --combat-red: #FF3131;
+    --combat-dark: #121212;
+}
+
+body {
+    background-color: var(--combat-dark);
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar-blur {
+    backdrop-filter: blur(10px);
+    background-color: rgba(18, 18, 18, 0.7);
+}
+#video-container{
+    transform-style: preserve-3d;
+    perspective: 800px;
+   
+}
+#subhead{
+    color:#ebdf05;
+}
+
+
+#main-title {
+    font-size: 8.5rem; /* Default size for large screens */
+    font-weight: 900;
+    margin-top: 12vh;
+    color: transparent; /* Makes the text transparent */
+    -webkit-text-stroke: 2px white; /* Adds a white border */
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    text-shadow: 
+        3px 3px 2px rgba(0, 0, 0, 0.5), /* Adds depth on one side */
+        -3px -3px 2px rgba(255, 255, 255, 0.3); /* Highlights on the other side */
+    transform: translateZ(0);
+    animation: pulse 2s infinite;
+    text-align: center; /* Ensures proper alignment on smaller screens */
+    line-height: 1.2; /* Adjust line spacing for readability */
+}
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+
+/* Responsive Sizes */
+@media (max-width: 1200px) {
+    #main-title {
+        font-size: 7rem; /* Slightly smaller for medium screens */
+        margin-top: 10vh;
+    }
+}
+
+@media (max-width: 992px) {
+    #main-title {
+        font-size: 5.5rem; /* Smaller size for tablets */
+        margin-top: 8vh;
+    }
+}
+
+@media (max-width: 768px) {
+    #main-title {
+        font-size: 4.5rem; /* Further reduction for small tablets */
+        margin-top: 6vh;
+    }
+}
+
+@media (max-width: 576px) {
+    #main-title {
+        font-size: 3.5rem; /* Smallest size for mobile devices */
+        margin-top: 4vh;
+    }
+}
+
+
+
+

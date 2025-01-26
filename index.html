@@ -3,83 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMBAT - Ultimate Sports Championship</title>
+    <title>COMBAT</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <style>
-        :root {
-            --combat-red: #FF3131;
-            --combat-dark: #121212;
-        }
-
-        body {
-            background-color: var(--combat-dark);
-            font-family: 'Arial', sans-serif;
-        }
-
-        .navbar-blur {
-            backdrop-filter: blur(10px);
-            background-color: rgba(18, 18, 18, 0.7);
-        }
-
-        .combat-text {
-            font-size: clamp(3rem, 8vw, 10rem);
-            background: linear-gradient(45deg, #FF3131, #dd4d4d, #862222);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            font-weight: bold;
-            position: relative;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="overflow-x-hidden">
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full z-50 navbar-blur">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-300 ">COMBAT</h1>
+            <!-- Replace text with logo -->
+            <a href="#" class="flex items-center">
+                <img src="logo.png" alt="Combat Logo" class="w-12 h-12">
+            </a>
             <div class="hidden lg:flex space-x-6 text-white">
                 <a href="#" class="hover:text-combat-red transition-colors group relative">
-                    Home
+                    Sports
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-combat-red transition-all group-hover:w-full"></span>
                 </a>
                 <a href="#" class="hover:text-combat-red transition-colors group relative">
-                    Sports
+                    Schedule
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-combat-red transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#" class="hover:text-combat-red transition-colors group relative">
+                    Points Table
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-combat-red transition-all group-hover:w-full"></span>
                 </a>
                 <a href="#" class="hover:text-combat-red transition-colors group relative">
                     About
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-combat-red transition-all group-hover:w-full"></span>
                 </a>
-                <a href="#" class="hover:text-combat-red transition-colors group relative">
-                    Contact
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-combat-red transition-all group-hover:w-full"></span>
-                </a>
             </div>
             <button class="block lg:hidden text-white" id="menu-toggle">
                 ☰
             </button>
-            <div class="hidden lg:block relative group">
-                <button class="bg-combat text-white px-6 py-2 rounded-full transition-colors">
-                    Dashboard
+            <div class="hidden lg:block">
+                <button class="bg-combat-red text-white px-6 py-2 rounded-full hover:bg-red-700 transition-colors">
+                    Contact
                 </button>
-                <div class="absolute left-0 mt-2 w-48 bg-gray-200 rounded shadow-lg hidden group-hover:block z-50">
-                    <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Schedule</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Points Table</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-200">Admin Dashboard</a>
-                </div>
             </div>
         </div>
         <div class="lg:hidden bg-black text-white space-y-4 px-4 py-4 hidden" id="mobile-menu">
@@ -89,13 +49,13 @@
             <a href="#" class="block">Contact</a>
             <a href="#" class="block">Schedule</a>
             <a href="#" class="block">Points Table</a>
-            <a href="#" class="block">Admin Dashboard</a>
         </div>
     </nav>
+    
 
     <!-- Video Section -->
     <div class="relative h-screen w-screen">
-        <div id="video-container" class="absolute top-0 left-0 w-full h-full">
+        <div id="video-container" class="absolute top-0  left-0 w-full h-full">
             <video 
                 id="background-video" 
                 class="absolute top-0 left-0 w-full h-full object-cover" 
@@ -103,22 +63,23 @@
                 loop 
                 preload="auto"
             >
-                <source src="20250124-1734-17.0291018.mp4" type="video/mp4">
+                <source src="bgc video.mp4" type="video/mp4">
             </video>
-            <div class="absolute top-0 left-0 w-full h-full bg-black/30"></div>
+            <div class="absolute top-0 left-0 w-full h-full bg-black/10"></div>
         </div>
 
-        <div id="dynamic-text" class="absolute top-0 left-0 w-full h-full flex items-center justify-center z-10 pointer-events-none">
-            <div class="text-center px-6">
-                <h1 id="main-title" class="combat-text opacity-100 transform translate-y-0">
-                    COMBAT<br>2K25
+        <div id="dynamic-text" class="absolute top-20 left-0 w-full h-full flex items-center justify-center z-10 pointer-events-none leading-[1.3]">
+            <div class="text-center px-0">
+                <h1 id="main-title" class="combat-text opacity-100 transform translate-y-0 ">
+                    COMBAT <br>2K25
                 </h1>
+                
             </div>
         </div>
         </div>
         <div id="textSection" class="relative z-20  bg-opacity-80  section-reveal">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-blue-300  mb-8">The Ultimate Sports Arena</h2>
+                <h2 id="subhead" class="text-4xl md:text-5xl font-bold  mb-7">The Ultimate Sports Arena</h2>
                 <div class="max-w-3xl mx-auto">
                     <p class="text-lg md:text-xl text-gray-300 mb-6">
                         COMBAT 2K25 transforms collegiate sports into an electrifying spectacle of skill, passion, and unbreakable team spirit. Where every match is a battlefield, and every athlete is a legend in the making.
@@ -159,55 +120,9 @@
 
     
     <!-- GSAP Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const video = document.getElementById("background-video");
-            const videoContainer = document.getElementById("video-container");
-            const mainTitle = document.getElementById("main-title");
-            const menuToggle = document.getElementById("menu-toggle");
-            const mobileMenu = document.getElementById("mobile-menu");
-    
-            gsap.registerPlugin(ScrollTrigger);
-    
-            // Play the video
-            video.play();
-    
-            // Hamburger menu functionality
-            menuToggle.addEventListener("click", () => {
-                mobileMenu.classList.toggle("hidden"); // Toggle the "hidden" class
-            });
-    
-            // GSAP animations
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#video-container",
-                    start: "top top",
-                    end: "bottom center",
-                    scrub: true,
-                    pin: true,
-                }
-            })
-            .to(videoContainer, {
-                scale: 0.7,
-                opacity: 0.5,
-                filter: "blur(8px)", // Partially blur video
-                ease: "power2.inOut",
-                duration: 2
-            })
-            .to(mainTitle, {
-                opacity: 0,
-                y: 0,
-                ease: "power2.inOut",
-                duration: 2
-            }, 0)
-            .from(textSection, {
-                opacity: 0,
-                y: 60,
-                ease: "power2.inOut",
-                duration: 2
-            }, 0);
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
     
 </body>
 </html>
